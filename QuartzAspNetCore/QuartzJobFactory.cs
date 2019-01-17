@@ -4,6 +4,7 @@ using Quartz.Spi;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace QuartzAspNetCore
@@ -31,6 +32,7 @@ namespace QuartzAspNetCore
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"An error has ocurred instantiating a new job: {ex.Message}. StackTrace: {ex.StackTrace}");
                 throw;
             }
         }
@@ -46,7 +48,7 @@ namespace QuartzAspNetCore
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine($"An error has ocurred returning a job: {ex.Message}. StackTrace: {ex.StackTrace}");
             }
         }
     }
